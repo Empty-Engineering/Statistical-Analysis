@@ -121,3 +121,4 @@ double upper_limit_outliers(vector<double> data1){
     double iqr = q3-q1;
     return q3+1.5*iqr;
 }
+
