@@ -12,6 +12,8 @@
 #include <vector>
 using namespace std;
 
+
+//Organise data
 vector<double> organise_data(vector<double> n)
 {
     vector<double> sorted_data;
@@ -33,7 +35,7 @@ vector<double> organise_data(vector<double> n)
 }
 
 
-//mean
+//mean//
 double avg(vector<double> data1)
 {
     vector<double> n = organise_data(data1);
@@ -44,7 +46,7 @@ double avg(vector<double> data1)
     }
     return sum /(n.size());
 }
-//media
+//media//
 double median(vector<double> data1){
     vector<double> n=organise_data(data1);
     if (n.size()%2 == 0){
@@ -59,7 +61,7 @@ double median(vector<double> data1){
         return n[i];
     }
 }
-//mode  
+//mode//
 double mode(vector<double> data1){
     vector<double> n=organise_data(data1);
     int count = 1;
@@ -79,7 +81,7 @@ double mode(vector<double> data1){
     }
     return mode;
 }
-//Standard Deviation
+//Standard Deviation//
 double standard_deviation(vector<double> data1){
     vector<double> n=organise_data(data1);
     double sum = 0;
@@ -90,20 +92,20 @@ double standard_deviation(vector<double> data1){
     }
     return sqrt(sum/(n.size()-1));
 }
-//This calculates the first quartile of the data
+//This calculates the first quartile of the data//
 double q1(vector<double> n){
     n = organise_data(n);
     vector<double> q1_range= vector<double>(n[0],median(n));
     return median(q1_range);
 }
-//This calculates the third quartile of the data
+//This calculates the third quartile of the data//
 double q3(vector<double> n){
     n = organise_data(n);
     vector<double> q3_range= vector<double>(median(n),n[n.size()-1]);
     return median(q3_range);
 }
 
-//This function returns the lower limit of the outliers
+//This function returns the lower limit of the outliers//
 double lower_limit_outliers(vector<double> data1){
     vector<double> n=organise_data(data1);
     
@@ -112,7 +114,7 @@ double lower_limit_outliers(vector<double> data1){
     double iqr = q3-q1;
     return q1-1.5*iqr;
 }
-//This function returns the upper limit of the outliers
+//This function returns the upper limit of the outliers//
 double upper_limit_outliers(vector<double> data1){
     vector<double> n=organise_data(data1);
 
@@ -121,7 +123,7 @@ double upper_limit_outliers(vector<double> data1){
     double iqr = q3-q1;
     return q3+1.5*iqr;
 }
-//This calculates variance
+//This calculates variance//
 double variance(vector<double> data1){
     vector<double> n=organise_data(data1);
     double sum = 0;
