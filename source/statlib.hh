@@ -42,7 +42,7 @@ double avg(vector<double> data1)
     {
         sum += n[i];
     }
-    return sum / n.size();
+    return sum /(n.size());
 }
 //media
 double median(vector<double> data1){
@@ -121,4 +121,14 @@ double upper_limit_outliers(vector<double> data1){
     double iqr = q3-q1;
     return q3+1.5*iqr;
 }
-
+//This calculates variance
+double variance(vector<double> data1){
+    vector<double> n=organise_data(data1);
+    double sum = 0;
+    double mean = avg(n);
+    sum = 0;
+    for (int i = 0; i < n.size(); i++){
+        sum += pow(n[i]-mean,2);
+    }
+    return sum/(n.size()-1);
+}
